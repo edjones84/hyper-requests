@@ -2,7 +2,7 @@ import unittest
 import requests
 
 from unittest.mock import MagicMock
-from src.threader import MultiThreadAPI
+from src.threader import AsyncRequests
 
 
 class TestThreadingSetup(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestThreadingSetup(unittest.TestCase):
             {"url": "https://api.example.com/endpoint1", "param": "value1"},
             {"url": "https://api.example.com/endpoint2", "param": "value2"},
         ]
-        self.api = MultiThreadAPI(self.request_params)
+        self.api = AsyncRequests(self.request_params)
 
     def test_init(self):
         self.assertEqual(self.api.request_params, self.request_params)

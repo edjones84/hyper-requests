@@ -3,7 +3,7 @@ import unittest
 
 import requests
 
-from src.threader import MultiThreadAPI
+from src.threader import AsyncRequests
 
 
 class PerformanceTest(unittest.TestCase):
@@ -13,9 +13,9 @@ class PerformanceTest(unittest.TestCase):
         workers = 10  # Number of worker threads
 
         # run requests in async
-        api = MultiThreadAPI(request_params, workers)
+        api = AsyncRequests(request_params, workers)
         start_time_async = time.time()
-        data_async = api.run_api_threads()
+        data_async = api.run_threads()
         end_time_async = time.time()
         execution_time_async = end_time_async - start_time_async
 

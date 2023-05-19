@@ -10,7 +10,7 @@ from src.request_builder import check_request_params
 nest_asyncio.apply()
 
 
-class MultiThreadAPI:
+class AsyncRequests:
     """Using asyncio this allows for multithreading of API calls. Pass in a list of URLs and a list of parameters."""
     def __init__(self, request_params: list[dict[str, str]], workers: int = 10):
         self.request_params = check_request_params(request_params)
@@ -48,7 +48,7 @@ class MultiThreadAPI:
                 json_data = [response for response in await asyncio.gather(*tasks)]
         return json_data
 
-    def run_api_threads(self):
+    def run_threads(self):
         """Implements the loop that multithreads and outputs data"""
         loop = asyncio.get_event_loop()
         future = asyncio.ensure_future(self._get_data_asynchronous())

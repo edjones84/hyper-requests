@@ -1,6 +1,6 @@
 import unittest
 
-from src.threader import MultiThreadAPI
+from src.threader import AsyncRequests
 
 
 class TestThreading(unittest.TestCase):
@@ -26,7 +26,7 @@ class TestThreading(unittest.TestCase):
                     """}
              },
         ]
-        self.api1 = MultiThreadAPI(self.request_params1)
+        self.api1 = AsyncRequests(self.request_params1)
 
         self.request_params2 = [
             {
@@ -36,12 +36,12 @@ class TestThreading(unittest.TestCase):
                 "url": "https://official-joke-api.appspot.com/random_joke"
             }
         ]
-        self.api2 = MultiThreadAPI(self.request_params2)
+        self.api2 = AsyncRequests(self.request_params2)
 
     def test_run_api1_threads_with_params(self):
-        self.assertIsNotNone(self.api1.run_api_threads())
+        self.assertIsNotNone(self.api1.run_threads())
 
     def test_run_api2_threads_just_url(self):
-        print(self.api2.run_api_threads())
-        self.assertIsNotNone(self.api2.run_api_threads())
+        print(self.api2.run_threads())
+        self.assertIsNotNone(self.api2.run_threads())
 
