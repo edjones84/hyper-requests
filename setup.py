@@ -11,10 +11,6 @@ setuptools.setup(
     description="Concurrent request HTTP execution library",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="package URL",
-    project_urls={
-        "Bug Tracker": "package issues URL",
-    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
