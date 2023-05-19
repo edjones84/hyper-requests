@@ -9,7 +9,10 @@ from src.threader import AsyncRequests
 class PerformanceTest(unittest.TestCase):
     def test_api_performance(self):
         api_calls = 10
-        request_params = [{"url": "https://official-joke-api.appspot.com/random_joke"} for _ in range(0, api_calls)]
+        request_params = [
+            {"url": "https://official-joke-api.appspot.com/random_joke"}
+            for _ in range(0, api_calls)
+        ]
         workers = 10  # Number of worker threads
 
         # run requests in async
@@ -35,5 +38,5 @@ class PerformanceTest(unittest.TestCase):
         self.assertLess(execution_time_async, execution_time_sync)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

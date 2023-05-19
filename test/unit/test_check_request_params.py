@@ -4,7 +4,6 @@ from src.request_builder import check_request_params
 
 
 class TestCheckRequestParams(unittest.TestCase):
-
     def test_valid_request_parameters(self):
         request_parameters = [
             {"url": "https://example.com", "method": "GET"},
@@ -20,7 +19,10 @@ class TestCheckRequestParams(unittest.TestCase):
         ]
         with self.assertRaises(ValueError) as context:
             check_request_params(request_parameters)
-        self.assertEqual(str(context.exception), "Invalid request parameters. No matching keys found in Request class attributes.")
+        self.assertEqual(
+            str(context.exception),
+            "Invalid request parameters. No matching keys found in Request class attributes.",
+        )
 
     def test_invalid_request_parameters_no_url_key(self):
         request_parameters = [
@@ -29,8 +31,10 @@ class TestCheckRequestParams(unittest.TestCase):
         ]
         with self.assertRaises(ValueError) as context:
             check_request_params(request_parameters)
-        self.assertEqual(str(context.exception), "Invalid request parameters. No url key present")
+        self.assertEqual(
+            str(context.exception), "Invalid request parameters. No url key present"
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

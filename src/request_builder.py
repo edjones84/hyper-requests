@@ -1,8 +1,11 @@
 import inspect
+
 from requests.models import Request
 
 
-def check_request_params(request_parameters: list[dict[str, str]]) -> list[dict[str, str]]:
+def check_request_params(
+    request_parameters: list[dict[str, str]]
+) -> list[dict[str, str]]:
 
     # Get the attribute names of the Request class
     request_attributes = inspect.getfullargspec(Request.__init__).args
@@ -14,7 +17,9 @@ def check_request_params(request_parameters: list[dict[str, str]]) -> list[dict[
 
         # Check if any key in the dictionary is also a valid attribute name of the Request class
         if not any(key in request_attributes for key in request_keys):
-            raise ValueError("Invalid request parameters. No matching keys found in Request class attributes.")
+            raise ValueError(
+                "Invalid request parameters. No matching keys found in Request class attributes."
+            )
 
         # Check a url request string is present  in the dictionary
         if "url" not in request_keys:

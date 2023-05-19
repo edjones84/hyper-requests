@@ -1,12 +1,12 @@
 import unittest
+from unittest.mock import MagicMock
+
 import requests
 
-from unittest.mock import MagicMock
 from src.threader import AsyncRequests
 
 
 class TestThreadingSetup(unittest.TestCase):
-
     def setUp(self):
         self.request_params = [
             {"url": "https://api.example.com/endpoint1", "param": "value1"},
@@ -24,12 +24,16 @@ class TestThreadingSetup(unittest.TestCase):
         response.json.return_value = {"key": "value"}
         session.get.return_value.__enter__.return_value = response
 
-        data = self.api._fetch(session, {"url":"https://api.example.com/endpoint", "param":"value"})
+        data = self.api._fetch(
+            session, {"url": "https://api.example.com/endpoint", "param": "value"}
+        )
 
-        session.get.assert_called_once_with(url="https://api.example.com/endpoint", param="value")
+        session.get.assert_called_once_with(
+            url="https://api.example.com/endpoint", param="value"
+        )
         response.json.assert_called_once()
         self.assertEqual(data, {"key": "value"})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

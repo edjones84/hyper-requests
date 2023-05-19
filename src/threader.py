@@ -1,10 +1,9 @@
 import asyncio
-from typing import Any
+from concurrent.futures import ThreadPoolExecutor
 
 import nest_asyncio
 import requests
 
-from concurrent.futures import ThreadPoolExecutor
 from src.request_builder import check_request_params
 
 nest_asyncio.apply()
@@ -12,6 +11,7 @@ nest_asyncio.apply()
 
 class AsyncRequests:
     """Using asyncio this allows for multithreading of API calls. Pass in a list of URLs and a list of parameters."""
+
     def __init__(self, request_params: list[dict[str, str]], workers: int = 10):
         self.request_params = check_request_params(request_params)
         self.workers = workers
@@ -39,7 +39,10 @@ class AsyncRequests:
                     loop.run_in_executor(
                         executor,
                         self._fetch,
-                        *(session, dictionary)  # Pass other parameters without the url key
+                        *(
+                            session,
+                            dictionary,
+                        )
                     )
                     for dictionary in self.request_params
                 ]
