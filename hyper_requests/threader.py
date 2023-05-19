@@ -3,7 +3,6 @@ from concurrent.futures import ThreadPoolExecutor
 
 import nest_asyncio
 import requests
-
 from src.request_builder import check_request_params
 
 nest_asyncio.apply()
