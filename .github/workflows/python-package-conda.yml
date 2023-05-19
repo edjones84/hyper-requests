@@ -35,4 +35,6 @@ jobs:
     - name: Python Unit Test
       working-directory: ./
       run: |
-        python -m unittest discover -s ./test
+        python -m unittest discover -s ./test/unit
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
