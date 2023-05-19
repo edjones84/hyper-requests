@@ -8,7 +8,7 @@ from src.threader import AsyncRequests
 
 class PerformanceTest(unittest.TestCase):
     def test_api_performance(self):
-        api_calls = 10
+        api_calls = 20
         request_params = [
             {"url": "https://official-joke-api.appspot.com/random_joke"}
             for _ in range(0, api_calls)
@@ -22,8 +22,9 @@ class PerformanceTest(unittest.TestCase):
         end_time_async = time.time()
         execution_time_async = end_time_async - start_time_async
 
-        print(f"Concurrent Execution time: {execution_time_async} seconds")
-        print(f"Concurrent Data length: {len(data_async)}")
+        print("")
+        print(f"Asynchronous Execution time: {execution_time_async} seconds")
+        print(f"Asynchronous Data length: {len(data_async)}")
 
         # run requests synchronously
         start_time_sync = time.time()
@@ -31,8 +32,8 @@ class PerformanceTest(unittest.TestCase):
         end_time_sync = time.time()
         execution_time_sync = end_time_sync - start_time_sync
 
-        print(f"Concurrent Execution time: {execution_time_sync} seconds")
-        print(f"Concurrent Data length: {len(data_sync)}")
+        print(f"Synchronous Execution time: {execution_time_sync} seconds")
+        print(f"Synchronous Data length: {len(data_sync)}")
 
         # Assert that the results return the same values for completeness
         self.assertLess(execution_time_async, execution_time_sync)
