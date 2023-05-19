@@ -17,7 +17,7 @@ classifiers = [
 ]
 dependencies = [
     "requests ~= 2.28.1",
-    "nest-asyncio >= ~=1.5.6",
+    "nest-asyncio ~=1.5.6",
 ]
 
 [project.urls]
