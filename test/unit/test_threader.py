@@ -1,6 +1,6 @@
 import unittest
 
-from src.threader import AsyncRequests
+from hyper_requests.threader import AsyncRequests
 
 
 class TestThreading(unittest.TestCase):

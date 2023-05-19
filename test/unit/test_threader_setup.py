@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 import requests
 
-from src.threader import AsyncRequests
+from hyper_requests.threader import AsyncRequests
 
 
 class TestThreadingSetup(unittest.TestCase):

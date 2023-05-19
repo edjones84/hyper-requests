@@ -1,6 +1,6 @@
 import unittest
 
-from src.request_builder import check_request_params
+from hyper_requests.request_builder import check_request_params
 
 
 class TestCheckRequestParams(unittest.TestCase):

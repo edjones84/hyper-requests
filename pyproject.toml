@@ -7,7 +7,7 @@ version = "0.0.3"
 authors = [
   { name="Ed Jones", email="ejones84@icloud.com" },
 ]
-description = "Concurrent request HTTP execution librar"
+description = "Concurrent request HTTP execution library"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [

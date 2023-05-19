@@ -3,7 +3,7 @@ import unittest
 
 import requests
 
-from src.threader import AsyncRequests
+from hyper_requests.threader import AsyncRequests
 
 
 class PerformanceTest(unittest.TestCase):
