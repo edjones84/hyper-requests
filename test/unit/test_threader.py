@@ -45,5 +45,4 @@ class TestThreading(unittest.TestCase):
         self.assertIsNotNone(self.api1.run_threads())
 
     def test_run_api2_threads_just_url(self):
-        print(self.api2.run_threads())
         self.assertIsNotNone(self.api2.run_threads())
