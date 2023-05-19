@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "hyper-requests"
-version = "0.0.3"
+version = "0.0.5"
 authors = [
   { name="Ed Jones", email="ejones84@icloud.com" },
 ]
@@ -15,12 +15,11 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+    "requests ~= 2.28.1",
+    "nest-asyncio >= ~=1.5.6",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/edjones84/hyper-requests"
 "Bug Tracker" = "https://github.com/edjones84/hyper-requests/issues"
-
-[tool.hatchling.requires]
-python = ">=3.7"
-requests = "~=2.28.1"
-nest-asyncio = "~=1.5.6"

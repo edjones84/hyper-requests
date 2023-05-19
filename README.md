@@ -4,6 +4,45 @@
 [![Python Package using Conda](https://github.com/edjones84/hyper-requests/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/edjones84/hyper-requests/actions/workflows/python-package-conda.yml)
 ## What is it?
 hyper-requests is a Python library that enables multithreading of API calls using asyncio. It takes a list of URLs and a list of parameters as input and then uses the requests library to make these calls asynchronously (https://pypi.org/project/requests/).
+## Usage
+### Installation
+Install hyper-requests using pip:
+```bash
+pip install hyper-requests
+```
+### Example
+```python
+from hyper_requests.threader import AsyncRequests
+
+# Define the request parameters
+params = [
+    {'url': 'http://httpbin.org/get' , 'data': 'value1'},
+    {'url': 'http://httpbin.org/get' , 'data': 'value3'},
+    {'url': 'http://httpbin.org/get' , 'data': 'value5'},
+    {'url': 'http://httpbin.org/get' , 'data': 'value7'},
+    {'url': 'http://httpbin.org/get' , 'data': 'value9'}
+]
+
+# Create an instance of AsyncRequests and execute the requests
+returned_data = AsyncRequests(request_params=params, workers=10).run_threads()
+
+# Process the returned data
+for response in returned_data:
+    print(response)
+```
+This example demonstrates the usage of hyper-requests to perform asynchronous HTTP requests.
+
+First, make sure you have installed hyper-requests by running the command pip install hyper-requests.
+
+Next, import the AsyncRequests class from the hyper_requests.threader module.
+
+Create a list of request parameters using dictionaries, where each dictionary represents a set of parameters for an individual request. In this example, each request MUST have a URL specified with the 'url' key, all other paramters must match the classic request template.
+
+Create an instance of AsyncRequests with the request_params argument set to your list of request parameters. Specify the number of concurrent worker threads to use with the workers argument (in this case, workers=10).
+
+Execute the requests using the run_threads() method, which returns the data obtained from the requests.
+
+Finally, process the returned data as desired. In this example, each response is printed, but you can perform further operations based on your specific needs.
 ## Performance
 It is hyper fast!
 
@@ -15,7 +54,7 @@ Using hyper requests the time taken to make these calls is ~2 second, using sync
 ============================= test session starts ==============================
 collecting ... collected 1 item
 
-test_performance.py::PerformanceTest::test_api_performance 
+test_performance.py::PerformanceTest::test_api_performance
 
 ============================== 1 passed in 17.76s ==============================
 
