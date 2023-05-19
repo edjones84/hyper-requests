@@ -5,7 +5,7 @@ with open("README.md", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="hyper-requests",
-    version="0.0.1",
+    version="0.0.2",
     author="Edward Jones",
     author_email="ejones84@icloud.com",
     description="Concurrent request HTTP execution library",
