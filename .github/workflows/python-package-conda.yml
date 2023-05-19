@@ -37,4 +37,11 @@ jobs:
       run: |
         python -m unittest discover -s ./test/unit
     - name: Upload coverage reports to Codecov
+      env:
+        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          find . -iregex "codecov.*"
+          chmod +x codecov
+          ./codecov -t ${CODECOV_TOKEN}
       uses: codecov/codecov-action@v3
