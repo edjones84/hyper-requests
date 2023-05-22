@@ -12,7 +12,7 @@ pip install hyper-requests
 ```
 ### Example
 ```python
-from hyper_requests.threader import AsyncRequests
+import hyper_requests
 
 # Define the request parameters
 params = [
@@ -24,7 +24,7 @@ params = [
 ]
 
 # Create an instance of AsyncRequests and execute the requests
-returned_data = AsyncRequests(request_params=params, workers=10).run_threads()
+returned_data = hyper_requests.get(request_params=params, workers=10)
 
 # Process the returned data
 for response in returned_data:

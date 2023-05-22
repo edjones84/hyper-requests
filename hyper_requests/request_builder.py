@@ -9,9 +9,9 @@ def check_request_params(
     """
     Checks the validity of request parameters and ensures they match the attributes of the Request class.
 
-    @param request_parameters: List of dictionaries containing request parameters.
-    @return: Validated list of request parameters.
-    @raises ValueError: If the request parameters are invalid.
+    :param request_parameters: List of dictionaries containing request parameters.
+    :return: Validated list of request parameters.
+    :raises ValueError: If the request parameters are invalid.
     """
 
     # Get the attribute names of the Request class
