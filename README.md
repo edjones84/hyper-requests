@@ -48,7 +48,7 @@ It is hyper fast!
 
 Within the `test/performance` directory there is a performance test that makes 20 API calls to the random joke generator api: https://official-joke-api.appspot.com/random_joke.
 
-Using hyper requests the time taken to make these calls is ~2 second, using syncronous api calls takes ~16 seconds.
+Using hyper requests the time taken to make these calls is ~2 second, using synchronous api calls takes ~16 seconds.
 
 ```bash
 ============================= test session starts ==============================
