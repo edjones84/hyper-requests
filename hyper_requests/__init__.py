@@ -1,3 +1,3 @@
-from threader import get
+from .threader import get
 
 __all__ = ["get"]
