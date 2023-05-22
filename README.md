@@ -34,7 +34,7 @@ This example demonstrates the usage of hyper-requests to perform asynchronous HT
 
 First, make sure you have installed hyper-requests by running the command pip install hyper-requests.
 
-Next, import the AsyncRequests class from the hyper_requests.threader module.
+Next, import hyper_requests nad utilise the .get() function.
 
 Create a list of request parameters using dictionaries, where each dictionary represents a set of parameters for an individual request. In this example, each request MUST have a URL specified with the 'url' key, all other paramters must match the classic request template.
 
