@@ -30,7 +30,7 @@ def check_request_params(
 
         # Check if a URL request string is present in the dictionary
         if "url" not in request_keys:
-            raise ValueError("Invalid request parameters. No 'url' key present")
+            raise ValueError("Invalid request parameters. No url key present")
 
     # If all dictionaries have at least one matching key, return the request_parameters list
     return request_parameters
