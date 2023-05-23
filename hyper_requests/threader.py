@@ -31,7 +31,9 @@ from hyper_requests.request_builder import check_request_params
 nest_asyncio.apply()
 
 
-def get(request_params: list[dict[str, Any]], workers: int = 10) -> list[dict[str, Any]]:
+def get(
+    request_params: list[dict[str, Any]], workers: int = 10
+) -> list[dict[str, Any]]:
     """
     Fetches data from multiple URLs asynchronously using multithreading.
 
