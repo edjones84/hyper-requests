@@ -56,6 +56,20 @@ class AsyncRequests:
         self.request_params = check_request_params(request_params)
         self.workers = workers
 
+    def __enter__(self):
+        """Enter the context."""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        Exit the context.
+
+        :param exc_type: Exception type (if an exception occurred) or None (if no exception occurred).
+        :param exc_val: Exception value (instance of the exception that was raised) or None.
+        :param exc_tb: Exception traceback object (contains information about the stack frames) or None.
+        """
+        pass
+
     @staticmethod
     def _fetch(session, dict_in: dict[str, str]) -> dict[str, Any]:
         """
