@@ -34,13 +34,11 @@ This example demonstrates the usage of hyper-requests to perform asynchronous HT
 
 First, make sure you have installed hyper-requests by running the command pip install hyper-requests.
 
-Next, import hyper_requests nad utilise the .get() function.
+Next, import hyper_requests and utilise the .get() function.
 
 Create a list of request parameters using dictionaries, where each dictionary represents a set of parameters for an individual request. In this example, each request MUST have a URL specified with the 'url' key, all other paramters must match the classic request template.
 
-Create an instance of AsyncRequests with the request_params argument set to your list of request parameters. Specify the number of concurrent worker threads to use with the workers argument (in this case, workers=10).
-
-Execute the requests using the run_threads() method, which returns the data obtained from the requests.
+These must now be inputed to the .get() function, with the number of concurrent worker threads to use with the workers argument (in this case, workers=10). The return value is a list of json responses.
 
 Finally, process the returned data as desired. In this example, each response is printed, but you can perform further operations based on your specific needs.
 ## Performance
@@ -65,3 +63,8 @@ Asynchronous Data length: 20
 Synchronous Execution time: 15.81911015510559 seconds
 Synchronous Data length: 20
 ```
+
+## TODO
+[] Deal with non-json responses e.g XML ?
+[] Create input to .get() more intuitive e.g. mirror the requests functionality 
+[] Add time limit on requests to deal with request limits
