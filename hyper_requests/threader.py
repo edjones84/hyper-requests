@@ -82,7 +82,14 @@ class AsyncRequests:
         :return: JSON data returned by the API.
         """
         with session.get(**dict_in) as response:
-            data = response.json()
+            content_type = response.headers["Content-Type"]
+            print(content_type)
+            if "json" in content_type:
+                data = response.json()
+            elif "xml" in content_type:
+                data = response.text
+            else:
+                raise UnknownContent("Response type is not valid")
             return data
 
     async def _get_data_asynchronous(self) -> list[dict[str, Any]]:
@@ -127,3 +134,9 @@ class AsyncRequests:
         loop.run_until_complete(future)
         data = future.result()
         return data
+
+
+class UnknownContent(Exception):
+    """Unknown content type exception"""
+
+    pass

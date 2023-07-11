@@ -65,6 +65,5 @@ Synchronous Data length: 20
 ```
 
 ## TODO
-- [ ] Deal with non-json responses e.g XML ?
 - [ ] Create input to .get() more intuitive e.g. mirror the requests functionality
 - [ ] Add time limit on requests to deal with request limits
